@@ -24,15 +24,18 @@ const Layout = () => {
   };
   const [status, setStatus] = useState();
     const [user, setUser] = useState();
+    const [comments, setComments] = useState([]);
   const queryClient=new QueryClient();
     
     const globalContextValue = useMemo(()=>{
       return{
         user,
+        comments,
         setUser,
         setStatus,
+        setComments,
       };
-    },[user]);
+    },[user,comments,setComments]);
   
   return (
     <GlobalContext.Provider value={globalContextValue}>
